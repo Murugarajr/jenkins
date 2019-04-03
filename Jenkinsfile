@@ -1,14 +1,9 @@
 pipeline {
-    agent none 
+    agent { label 'master' }
     stages {
-        stage('Build') { 
-            agent {
-                docker {
-                    image 'python:3-alpine' 
-                }
-            }
+        stage('build') {
             steps {
-                sh 'python -m py_compile sources/hello.py' 
+                echo "Hello World!"
             }
         }
     }
